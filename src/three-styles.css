@@ -1,0 +1,203 @@
+/* ── 3D HERO WINE GLASS CANVAS ── */
+#hero-3d-glass {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(200px, 28vw, 420px);
+    height: clamp(300px, 42vw, 620px);
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+    animation: fadeUp 1s ease 3.2s forwards;
+}
+
+/* ── SIGNATURE DISH SHOWCASE SECTION ── */
+#dish-showcase {
+    background: linear-gradient(160deg, #0D0A0E 0%, #100D08 60%, #0A0A0C 100%);
+    padding: 110px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#dish-showcase::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 50%, rgba(197, 160, 89, 0.06) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.showcase-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.showcase-desc {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.showcase-details {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 20px;
+}
+
+.sd-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sd-label {
+    font-size: .66rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.sd-val {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--gold);
+}
+
+.showcase-hint {
+    font-size: .76rem;
+    color: var(--text-muted);
+    letter-spacing: .05em;
+    margin-top: 8px;
+}
+
+.showcase-3d {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#dish-3d {
+    width: 100%;
+    max-width: 520px;
+    height: 480px;
+    display: block;
+    border-radius: 4px;
+    cursor: grab;
+}
+
+#dish-3d:active {
+    cursor: grabbing;
+}
+
+.showcase-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.12) 0%, transparent 65%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: .6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+/* ── VIP 3D WINE BOTTLE HERO ── */
+.vip-3d-hero {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 60px;
+    padding: 40px;
+    background: rgba(197, 160, 89, 0.03);
+    border: 1px solid rgba(197, 160, 89, 0.12);
+    border-radius: 6px;
+}
+
+#bottle-3d {
+    width: 220px;
+    height: 420px;
+    flex-shrink: 0;
+    display: block;
+    cursor: grab;
+}
+
+#bottle-3d:active {
+    cursor: grabbing;
+}
+
+.vip-3d-label {
+    flex: 1;
+}
+
+.vip-3d-eyebrow {
+    display: block;
+    font-size: .66rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.vip-3d-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.vip-3d-desc {
+    font-size: .9rem;
+    color: var(--text-secondary);
+}
+
+/* ── RESPONSIVE FOR NEW SECTIONS ── */
+@media (max-width: 1024px) {
+    .showcase-container {
+        grid-template-columns: 1fr;
+        padding: 0 40px;
+    }
+
+    #dish-3d {
+        height: 360px;
+    }
+
+    .vip-3d-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero-3d-glass {
+        display: none;
+    }
+
+    .showcase-container {
+        padding: 0 24px;
+    }
+
+    .showcase-details {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
